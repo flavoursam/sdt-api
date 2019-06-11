@@ -1,0 +1,9 @@
+
+## build folder
+dist
+build
+
+node_modules
+.vscode
+
+.env
