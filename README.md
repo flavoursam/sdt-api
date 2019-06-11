@@ -1,1 +1,3 @@
-    "start": "node ./bin/www",    
+# To start:
+npm install
+npm run prod

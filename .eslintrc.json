@@ -1,21 +1,13 @@
 {
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "mocha": true
-    },
-
-    "extends": "eslint:recommended",
-
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+    "ecmaFeatures": {
+        "modules": true,
+        "spread" : true,
+        "restParams" : true
     },
     "parser": "babel-eslint",
     "parserOptions": {
-        "sourceType": "module",
-        "allowImportExportEverywhere": true,
-        "ecmaVersion": 2018
+        "sourceType": "module", 
+        "allowImportExportEverywhere": true
     },
     "rules": {
         "no-console": "off"

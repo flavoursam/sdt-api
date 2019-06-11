@@ -1,0 +1,156 @@
+USERS
+/main/users/register - POST
+REQ:
+{
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String,
+    type: String
+}
+
+example RES:
+{
+    "message": "successful registration",
+    "user": {
+        "_id": "5cf088756154cfeec437f459",
+        "id": "e7b03df8-342f-4572-bed6-ec36a1e10a60",
+        "firstName": "1",
+        "lastName": "1",
+        "email": "2qq@gmail.com",
+        "pw": "$2b$10$DZ/Zzc6mXLMcYrDgrwNKYe/3RYA/fLFVfknNjjlE0nvCfASg1rNNG",
+        "type": "researcher",
+        "createdAt": 20190531,
+        "__v": 0
+    }
+}
+
+/main/users/login - POST
+REQ:
+{
+    email: String,
+    password: String
+}
+
+exmaple RES: 
+{
+    "auth": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4OWE2YzIyLTMzNDEtNDk5OC1iNWMyLTFhNjgwYzAzMjJmZSIsInR5cGUiOiJyZXNlYXJjaGVyIiwiaWF0IjoxNTU5NDQ0NTE1LCJleHAiOjE1NTk0NDgxMTV9._7k0LOF4jZmXOTDiMiG1sxgOi1_Gv_sp9pfADCxpuoQ",
+    "message": "user found & logged in",
+    "type": "researcher"
+}
+
+
+
+/main/users/contact - POST
+req:
+{
+    name: String,
+    from: String,
+    subject: String,
+    text: String
+}
+req:
+{
+	message: 'success...'
+}
+
+/main/users/logout - GET, requires authentication
+res:
+{
+	message: 'You are on the login page.'
+}
+
+
+
+
+
+SEARCH
+/main/search - POST, requires authentication             <---MATT
+Requests my code expects 
+query - user input text field
+list - a dropdown thats equal one of these 7 strings (companies, researchers, 
+investors, employees, students, universities, governments)
+
+These are the json fields that are returned based on the dropdown, similar to what i showed you today
+companies {
+	id: String,
+	name: String,
+	description: String,
+}
+researchers {
+	id: String,
+	name: String,
+	position: String,
+}
+investors {
+	id: String,
+	name: String,
+	investorType, String,
+}
+employees {
+	id: String,
+	name: String,
+	currentPosition: String,
+	employer: String,
+}
+students {
+	id: String,
+	name: String,
+	major: String,
+}
+universities {
+	id: String,
+	name: String,
+	description: String,
+}
+governments {
+	id: String,
+	name: String,
+	description: String,
+}
+
+/main/resourcesearch - POST, requires authentication     <---MATT
+
+
+ADMIN - all these resources require authentication
+/admin/users - POST
+{
+    firstName: String,
+    lastName: String,
+    email: String,
+    pw: String,
+    type: String,
+}
+
+/admin/users - GET
+res:
+{
+	id: string,
+	name: string,
+	type: string
+}
+
+
+/admin/users/lastName?lastName=<lastname> - GET - query: "lastName"
+example res:
+{
+	id: String,
+	name: String,
+	type: String,
+	createdAt: Number,
+}
+
+/admin/users/date?date=<date> - GET - query: "date", date must be in the form of YYYYMMDD
+example res:
+{
+	id: String,
+	name: String,
+	type: String,
+	createdAt: Number,
+}
+
+
+/admin/users/type/:type/id/:id - GET - params: type, id, 
+/admin/users/type/:type/id/:id - PUT - params: type, id
+- tell me when you are up these two. 
