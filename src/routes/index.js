@@ -1,9 +1,11 @@
 import express from 'express';
-var router = express.Router();
+import registerRouter from './register';
+import userRouter from './user';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const router = express.Router();
+
+router.use('/register', registerRouter);
+
+router.use('/user', userRouter);
 
 export default router;
