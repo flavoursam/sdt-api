@@ -8,12 +8,12 @@ import cors from 'cors';
 import routes from './routes/index';
 
 
-import { MONGO_URI } from './config/config'
+import { env } from './config/config'
 
 const app = express();
 
 // connect to mongoose
-mongoose.connect(MONGO_URI, { useCreateIndex: true, useNewUrlParser: true })
+mongoose.connect(env.MONGO_URI, { useCreateIndex: true, useNewUrlParser: true })
     .then(console.log("Successfully connected to mongo cloud DB."))
     .catch(err => {
     console.log("Could not connect to mongo server!");
