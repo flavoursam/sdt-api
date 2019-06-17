@@ -1,27 +1,30 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/user';
+import User from '../models/User';
 import { env } from '../config/config';
 
-class LoginService {
+export default class LoginService {
 
-	constructor(){}
-
-	static async loginUser(data) {	
-		const { email, password } = data;
+	static loginUser = async (requestData)  => {
+		const { email, password } = requestData;
 		const userDoc = await User.findOne({ email: email }).exec();
-		console.log(userDoc)
+		// console.log(userDoc)
 		if (!userDoc) {
 			// HANDLE USER NOT FOUND RESPONSE
+			return { msg: `${userDoc.email} does not exist.` };
 		} else {
 			const match = await bcrypt.compare(password, userDoc.pw);
+			// console.log(match)
 			if (match) {
-				return this.generateToken(userDoc);
+				return await this.generateToken(userDoc);
+			} else {
+				// HANDLE INCORRECT PASSWORD
+				return { msg: `Incorrect password.` };
 			}			 
 		}
 	}
 
-	static generateToken(userDoc) {
+	static async generateToken(userDoc) {
 		const payload = {
 			id: userDoc._id,
 			email: userDoc.email,
@@ -34,10 +37,4 @@ class LoginService {
 		return jwt.sign(payload, signature, { expiresIn: expiration })
 	}
 
-
-	static passwordMatches(userDocPassword, reqPassword) {
-		return bcrypt.compareSync(userDocPassword, reqPassword); 
-	}
 }
-
-export { LoginService };

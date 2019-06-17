@@ -1,15 +1,14 @@
 import express from 'express';
-import _ from 'lodash';
-import { loginUser } from '../controllers/loginController';
+import LoginController from '../controllers/loginController';
 
 const router = express.Router();
 
 const loginHandler = (loginUser, params) => async (req, res, next) => {
-	const data = params ? params(req, res, next) : [];
+	const requestData = params ? params(req, res, next) : [];
 
 	try {
-		const signedToken = await loginUser(data);
-		// result = token
+		const signedToken = await loginUser(requestData);
+
 		return res.status(200)
 					.cookie('token', signedToken, { maxAge: 86400 })
 					.send('Login successful.');
@@ -20,7 +19,7 @@ const loginHandler = (loginUser, params) => async (req, res, next) => {
 };
 
 
-router.post('/', loginHandler(loginUser, (req, res, next) => req.body));
+router.post('/', loginHandler(LoginController.loginUser, (req, res, next) => req.body));
 
 
 export default router;
