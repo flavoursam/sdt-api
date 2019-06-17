@@ -1,9 +1,8 @@
-import { getUser as getUserService } from '../services/userService'
+// import { getUser as getUserService } from '../services/userService'
 
 
-export function getUser(email) {
-  console.log('in controller getUser() function')
-  return Promise.resolve()
-    .then(() => getUserService(email))    // force controller to return promise if service does not
-}
-
+// export function getUser(email) {
+//   console.log('in controller getUser() function')
+//   return Promise.resolve()
+//     .then(() => getUserService(email))    // force controller to return promise if service does not
+// }

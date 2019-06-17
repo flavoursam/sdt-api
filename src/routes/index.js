@@ -1,13 +1,11 @@
 import express from 'express';
-import registerRouter from './register';
-import loginRouter from './login';
-import userRouter from './user';
+import authRouter from './auth';
+// import userRouter from './user';
 
 const router = express.Router();
 
-router.use('/register', registerRouter);
-router.use('/login', loginRouter);
+router.use('/auth', authRouter);
 
-router.use('/user', userRouter);
+// router.use('/user', userRouter);
 
 export default router;
