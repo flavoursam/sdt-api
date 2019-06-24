@@ -1,4 +1,4 @@
-import LoginService from '../services/loginService'
+import LoginService from '../../services/auth/loginService'
 
 
 export default class LoginController {

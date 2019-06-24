@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
-import { env } from '../config/config';
+import User from '../../models/User';
+import { env } from '../../config/config';
 
 export default class LoginService {
 

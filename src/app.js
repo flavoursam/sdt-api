@@ -4,14 +4,12 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
 import routes from './routes/index';
 
 
 import { env } from './config/config'
 
 const app = express();
-
 // connect to mongoose
 mongoose.connect(env.MONGO_URI, { useCreateIndex: true, useNewUrlParser: true })
     .then(console.log("Successfully connected to mongo cloud DB."))

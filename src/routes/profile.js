@@ -1,15 +1,14 @@
 // import express from 'express';
-// import { getUser } from '../controllers/userController';
+// import 
 
 // const router = express.Router();
 
 
-// const controllerHandler = (getUser, params) => async (req, res, next) => {
-//   console.log('in controllerHandler() function');
+// const createProfileHandler = (createProfile, params) => async (req, res, next) => {
+//   console.log('in createProfileHandler() function');
 //   const boundParams = params ? params(req, res, next) : [];
   
 //   try {
-//       console.log('erwerew')
 //     const result = await getUser(...boundParams);
 //     return res.json(result || { message: 'OK' });
 //   } catch (error) {
@@ -19,7 +18,7 @@
 // };
 
 
-// router.get('/:email', controllerHandler(getUser, (req, res, next) => [req.params.email]));
+// router.post('/role/:role/:id', createProfileHandler(getUser, (req, res, next) => [req.params.email]));
 
 
 // export default router;

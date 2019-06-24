@@ -1,5 +1,6 @@
-import User from '../models/User';
+import User from '../../models/User';
 import bcrypt from 'bcrypt';
+import uuid from 'uuid';
 
 export default class RegisterService {
 
@@ -7,6 +8,7 @@ export default class RegisterService {
 
 	static registerUser = async(requestData) => {
 		const { firstName, lastName, email, password, role } = requestData;
+
 		const user = await User.findOne({ email: email }).exec();
 		
 		if (user) {
@@ -18,11 +20,13 @@ export default class RegisterService {
 			});
 			const createdAt = new Date();
 			const createdBy = firstName + ' ' + lastName;
+			const id = uuid();
 
-			let newUser = new User({ firstName, lastName, email, pw, role, createdAt, createdBy });
+			let newUser = new User({ id, firstName, lastName, email, pw, role, createdAt, createdBy });
 			await newUser.save();
 
 			let userObjRes = {
+				id: newUser.id,
 				name: newUser.firstName + ' ' + newUser.lastName,
 				email: newUser.email,
 				role: newUser.role,

@@ -1,4 +1,4 @@
-import LogoutService from '../services/logoutService';
+import LogoutService from '../../services/auth/logoutService';
 
 export default class LogoutController {
     constructor() {};
