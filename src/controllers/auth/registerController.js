@@ -8,7 +8,6 @@ export default class RegisterController {
 		// save user object
 		// assemble response object
 		// return response object
-
 		return await RegisterService.registerUser(data);
 	}
 

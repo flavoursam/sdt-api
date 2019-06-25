@@ -8,7 +8,6 @@ var userSchema = new mongoose.Schema({
 	pw: String,
 	role: String,
 	createdAt: Date,
-	createdBy: String,
 });
 
 var User = mongoose.model('User', userSchema);

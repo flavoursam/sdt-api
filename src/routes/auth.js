@@ -13,7 +13,7 @@ const registerHandler = (registerUser, createProfile, params) => async (req, res
     try {
         const registeredUser = await registerUser(boundParams);
         const profileCreated = await createProfile(registeredUser.id, boundParams); 
-        console.log('profileCreated', profileCreated)
+
         return res.status(201)
                     .json(registeredUser)
                     .end();

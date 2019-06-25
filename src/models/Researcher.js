@@ -7,6 +7,7 @@ var ResearcherSchema = new mongoose.Schema({
     lastName: String,    
     position: String,
     role: String,
+    position: String,
     email: String,
     contactNumber: String,
     urls: [String],

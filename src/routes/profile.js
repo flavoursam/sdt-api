@@ -1,24 +1,53 @@
-// import express from 'express';
-// import 
+import express from 'express';
+import GetProfileController from '../controllers/profile/getProfileController';
+import RegisterController from '../controllers/auth/registerController';
+import CreateProfileController from '../controllers/profile/profileController';
 
-// const router = express.Router();
+import ResearcherController from '../controllers/profile/researcherController';
+
+const router = express.Router();
+
+// view list of profiles
+const getAllProfilesHandler = (getAllProfiles, params) => async(req, res, next) => {
+    const boundParams = params ? params(req, res, next) : [];
+    try {
+        const result = await getAllProfiles();
+
+        return res.status(200).json(result);
+    } catch(error) {
+        return res.status(500).json(error);
+    }
+}
+
+// create profile
+const createProfileHandler = (registerUser, createProfile, params) => async(req, res, next) =>{ 
+    const boundParams = params ? params(req, res, next) : [];    
+
+    let data = boundParams[1];
+    
+    try {
+        const registeredUser = await registerUser(data);
+        const profileCreated = await createProfile(registeredUser.id, data); 
+
+        // console.log('profileCreated', profileCreated)
+        // console.log('registeredUser', registeredUser)
+        return res.status(201)
+                    .json({ registeredUser, profileCreated })
+                    .end();
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
 
 
-// const createProfileHandler = (createProfile, params) => async (req, res, next) => {
-//   console.log('in createProfileHandler() function');
-//   const boundParams = params ? params(req, res, next) : [];
-  
-//   try {
-//     const result = await getUser(...boundParams);
-//     return res.json(result || { message: 'OK' });
-//   } catch (error) {
-//     return res.status(500).json(error);
-//   }
 
-// };
+router.get('/', getAllProfilesHandler(GetProfileController.getAllProfiles, (req, res, next) => []));
+router.post('/:role', createProfileHandler(RegisterController.registerUser, 
+    CreateProfileController.createProfile, (req, res, next) => [req.params.role, req.body]));
 
 
-// router.post('/role/:role/:id', createProfileHandler(getUser, (req, res, next) => [req.params.email]));
+// get single profile
 
 
-// export default router;
+
+export default router;

@@ -19,10 +19,9 @@ export default class RegisterService {
 				return hash;
 			});
 			const createdAt = new Date();
-			const createdBy = firstName + ' ' + lastName;
 			const id = uuid();
 
-			let newUser = new User({ id, firstName, lastName, email, pw, role, createdAt, createdBy });
+			let newUser = new User({ id, firstName, lastName, email, pw, role, createdAt });
 			await newUser.save();
 
 			let userObjRes = {
@@ -31,7 +30,6 @@ export default class RegisterService {
 				email: newUser.email,
 				role: newUser.role,
 				createdAt: newUser.createdAt,
-				createdBy: newUser.firstName + ' ' + newUser.lastName,
 			}
 
 			return userObjRes;
