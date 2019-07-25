@@ -1,3 +1,5 @@
+MVC 
+
 /src - contains all source code 
 /src/assemblers - assemblers to create response object
 /src/bin - entry point of app 
