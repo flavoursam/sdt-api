@@ -7,7 +7,7 @@ export default class CreateResearcherService {
 	static createResearcher = async (id, firstName, lastName, email, role) => {
         const user = await Researcher.findOne({ email: email }).exec();
 
-        if (user) {
+        if (user !== null) {
 			return { msg: `${user.email} already exists as user.`};
 		}
 

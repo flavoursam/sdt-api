@@ -1,0 +1,37 @@
+{
+    "users": [
+        {
+            "id": "1f011e55-6a3a-47ff-a0b0-17c0826bd7ec",
+            "firstName": "samuel",
+            "lastName": "jones",
+            "email": "user@email.com",
+            "password": "valid_password",
+            "role": "researcher",
+            "createdAt": "insert date here"
+            
+        },
+        {
+            "id": "different id",
+            "firstName": "Valid firstName",
+            "lastName": "Valid lastName",
+            "email": "different_user@email.com",
+            "password": "valid_password",
+            "role": "researcher",
+            "createdAt": "insert date here"
+        },
+        {
+            "id": "differentwerweqrew id",
+            "firstName": "Valid firstName",
+            "lastName": "Valid lastName",
+            "email": "differewerwent_user@email.com",
+            "password": "valid_password",
+            "role": "researcher",
+            "createdAt": "insert date here"
+
+        }
+    ],
+
+    "emptyUsers": [
+
+    ]
+}

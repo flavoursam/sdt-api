@@ -6,7 +6,7 @@
     "start": "npm run prod",
     "server": "babel-node ./src/bin/www",
     "dev": "NODE_ENV=development npm-run-all server",
-    "test": "mocha --require @babel/register test/test.js --exit",
+    "test": "mocha --require @babel/register test/*/**.test.js --exit",
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
     "server:prod": "babel-node ./dist/bin/www",
@@ -44,6 +44,8 @@
     "chai-http": "^4.3.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
-    "sinon": "^7.3.2"
+    "request": "^2.88.0",
+    "sinon": "^7.3.2",
+    "supertest": "^4.0.2"
   }
 }

@@ -1,7 +1,7 @@
 import express from 'express';
 import GetProfileController from '../controllers/profile/getProfileController';
-import RegisterController from '../controllers/auth/registerController';
-import CreateProfileController from '../controllers/profile/profileController';
+import { registerUser } from '../controllers/auth/registerController';
+import { createProfile } from '../controllers/profile/profileController';
 
 import ResearcherController from '../controllers/profile/researcherController';
 
@@ -42,8 +42,7 @@ const createProfileHandler = (registerUser, createProfile, params) => async(req,
 
 
 router.get('/', getAllProfilesHandler(GetProfileController.getAllProfiles, (req, res, next) => []));
-router.post('/:role', createProfileHandler(RegisterController.registerUser, 
-    CreateProfileController.createProfile, (req, res, next) => [req.params.role, req.body]));
+router.post('/:role', createProfileHandler(registerUser, createProfile, (req, res, next) => [req.params.role, req.body]));
 
 
 // get single profile

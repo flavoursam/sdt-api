@@ -5,5 +5,3 @@ build
 
 node_modules
 .vscode
-
-.env

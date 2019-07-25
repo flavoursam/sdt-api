@@ -1,0 +1,18 @@
+/src - contains all source code 
+/src/assemblers - assemblers to create response object
+/src/bin - entry point of app 
+/src/config - config file which reads env variables from .env file
+/src/controllers - controllers for each feature
+/src/helpers - utilty functions
+/src/middlewares - authorization and authentication middleware required for role based access control and user authentication
+/src/models - entities
+/src/routes - routes for each feature. these are where the requests are initially consumed by the api
+/src/services - service classes that perform a specific business need
+app.js - main module
+
+
+
+/test - some test classes for features. this is incomplete.
+
+package.json - scripts to start/build/install/clean the application 
+

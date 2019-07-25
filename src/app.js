@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(cors());
 
+app.get('/hello', function(req, res, next){return res.status(200); })
 
 app.use('/', routes);
 

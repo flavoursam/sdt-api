@@ -1,0 +1,6 @@
+NODE_ENV=development
+PORT=3000
+MONGO_URI=<insert mongo api uri key here>
+JWT_SECRET="hehe"
+ADMIN_EMAIL="steve@stevedavey.net"
+SENDGRID_API_KEY=<insert sendgrid api key here>

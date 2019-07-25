@@ -1,20 +1,40 @@
 import express from 'express';
 import User from '../models/User';
+import uuid from 'uuid';
 
 
-class Assembler {
+export default class Assembler {
     // takes registration request data and assembles user object
-    static userAssembler = async (registrationData)  => {
-        const { firstName, lastName, email, pw, role } = registrationData;
-        console.log('email', email)
-        const createdAt = new Date();
-        console.log('createdAt', createdAt);
-        const createdBy = firstName + ' ' + lastName;
+    static userRegistrationReqAssembler = async (registrationData)  => {
+        const { firstName, lastName, email, password, role } = registrationData;
+		const createdAt = new Date();
+        const id = uuid();
 
-        
-    
-        
+        const assembledUserReqObj = new User({
+            id: id,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            pw: password,
+            role: role,
+            createdAt: createdAt,
+        })
+
+        return assembledUserReqObj;
     }
+
+
+    static userRegistrationResAssembler = async(data) => {
+        let userObjRes = {
+			id: data.id,
+			name: data.firstName + ' ' + data.lastName,
+			email: data.email,
+			role: data.role,
+        }
+        
+        return userObjRes;
+    }
+
 
     static createdAt = async () => {
         var date = new Date();
@@ -33,4 +53,3 @@ class Assembler {
       }
 }
 
-export default Assembler;

@@ -1,0 +1,52 @@
+{
+    "researchers": [
+        {
+            "id": "some-id",
+            "firstName": "Albert",
+            "lastName": "Einstien",
+            "email": "albert@hotmail.com",
+            "position": "Lecturer",
+            "role": "researcher",
+            "contactNumber": "+61748392432",
+            "urls": [
+                "twitter",
+                "instagram",
+                "linkedin"
+            ],
+            "areasOfResearch": [
+                "cancer",
+                "nanotechnology",
+                "melanoma"
+            ],
+            "technologies": [
+                "cancer",
+                "x-ray",
+                "microscope"
+            ]
+        },
+        {
+            "id": "some-other-id",
+            "firstName": "Nicholas",
+            "lastName": "Tesla",
+            "email": "nicholas@hotmail.com",
+            "position": "scientist",
+            "role": "researcher",
+            "contactNumber": "+23402384933",
+            "urls": [
+                "twitter",
+                "instagram",
+                "linkedin"
+            ],
+            "areasOfResearch": [
+                "cancer",
+                "nanotechnology",
+                "melanoma"
+            ],
+            "technologies": [
+                "cancer",
+                "x-ray",
+                "microscope"
+            ]
+        }
+    ]
+}

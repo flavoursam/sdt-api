@@ -7,6 +7,7 @@ import { isAuthorized } from '../middlewares/isAuthorized';
 const router = express.Router();
 
 router.use('/auth', authRouter);
-router.use('/profiles', [isAuthenticated, isAuthorized], profileRouter);
+// router.use('/profiles', [isAuthenticated, isAuthorized], profileRouter);
+router.use('/profiles', profileRouter);
 
 export default router;
